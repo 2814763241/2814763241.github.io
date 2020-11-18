@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>socket - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="现在，我们有了WebSocket，它是HTML5的新A..."> 
+  
+  <meta name="author" content="Mr.Zhang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+  
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v1.hitokoto.cn/?encode=text&c=d'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left">
+    
+      <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+    
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+  </div>
+  <div class="center">socket</div>
+  <div class="right">
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+  
+    <div id="qrcode-navbar"></div>
+  
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 关于</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">socket</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 18, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2724</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>现在，我们有了WebSocket，它是HTML5的新API。WebSocket连接本质上就是建立一个TCP连接，WebSocket会通过HTTP请求建立，建立后的WebSocket会在客户端和服务端建立一个持久的连接，直到有一方主动关闭该连接。</p>
+<p>socket.io提供了基于事件的实时双向(工)通讯，它同时提供了服务端和客户端的API</p>
+<p>运用场景<br>1、实时分析：将数据推送到客户端，客户端表现为实时计数器、图表、日志客户。<br>2、实时通讯：聊天应用<br>3、二进制流传输：socket.io支持任何形式的二进制文件传输，例如图片、视频、音频等。<br>4、文档合并：允许多个用户同时编辑一个文档，并能够看到每个用户做出的修改</p>
+<p>第一步: 下载依赖</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">npm install -D koa koa-<span class="hljs-keyword">static</span> socket.io<br></code></pre></td></tr></table></figure>
+
+<p>第二步:创建应用程序及挂载静态资源处理中间件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> Koa = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;koa&#x27;</span>);<br><span class="hljs-keyword">const</span> koaStatic = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;koa-static&#x27;</span>);<br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Koa();<br><br>app.use(koaStatic(<span class="hljs-string">&#x27;./static&#x27;</span>));<br><br></code></pre></td></tr></table></figure>
+
+<p>第三步:将应用程序服务于socket.io连接</p>
+<blockquote>
+<p>app.callback(): 返回适用于 http.createServer() 方法的回调函数来处理请求<br>http.Server: http.Server 类</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>).Server(app.callback());<br>server.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> &#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)&#125;)<br><br><span class="hljs-comment">// 连接</span><br><span class="hljs-keyword">const</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;socket.io&#x27;</span>)(server);<br><br></code></pre></td></tr></table></figure>
+
+<p>第四步：io监听连接连接状态<br>监听连接，返回的回调函数中接收socket的实例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 监听连接</span><br>io.on(<span class="hljs-string">&#x27;connect&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">socket</span>) =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;连接&#x27;</span>);<br>    <span class="hljs-comment">// 监听信号（xinhao）</span><br>    socket.on(<span class="hljs-string">&#x27;xinhao&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(msg);<br>        <span class="hljs-comment">// 回复信号</span><br>        socket.emit(<span class="hljs-string">&#x27;xinhao2&#x27;</span>, <span class="hljs-string">&#x27;第二个信号&#x27;</span>);<br>    &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>客户端</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> socket = io();<br><span class="hljs-comment">// 发送信号： 信号标识符   信息</span><br>socket.emit(<span class="hljs-string">&#x27;xinhao&#x27;</span>,<span class="hljs-string">&#x27;这是第一个信号&#x27;</span>);<br><span class="hljs-comment">// 监听信号，xinhao2, 回调函数里：接收: 信息</span><br>socket.on(<span class="hljs-string">&#x27;xinhao2&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> p = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;p&#x27;</span>);<br>    p.innerHTML = msg;<br>    content.appendChild(p);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>实例：<br>1、客户端</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> socket = io();<br>    socket.on(<span class="hljs-string">&#x27;szc&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(msg);<br>    &#125;);<br><br>    socket.emit(<span class="hljs-string">&#x27;jjj&#x27;</span>, <span class="hljs-string">&#x27;你好&#x27;</span>);<br><br>    socket.on(<span class="hljs-string">&#x27;allperson&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">let</span> li = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;li&#x27;</span>);<br><br>        li.innerHTML = obj.name + <span class="hljs-string">&#x27;:&#x27;</span> + obj.msg;<br><br>        ul.appendChild(li);<br>    &#125;)<br><br><br>    btn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        socket.emit(<span class="hljs-string">&#x27;all&#x27;</span>, &#123;<br>            name: <span class="hljs-string">&#x27;访客&#x27;</span> + <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">1000</span>),<br>            msg: txt.value<br>        &#125;);<br>        txt.value = <span class="hljs-string">&#x27;&#x27;</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>服务端<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> Koa = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;koa&#x27;</span>);<br><br><span class="hljs-keyword">const</span> koaStatic = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;koa-static&#x27;</span>);<br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Koa();<br><br>app.use(koaStatic(<span class="hljs-string">&#x27;./static&#x27;</span>));<br><br><span class="hljs-comment">// app.listen(3000)</span><br><br><span class="hljs-comment">// koa的应用给了http的服务</span><br><span class="hljs-keyword">const</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>).Server(app.callback());<br>server.listen(<span class="hljs-number">3000</span>);<br><br><span class="hljs-comment">// 将服务于io联系在一起</span><br><span class="hljs-keyword">const</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;socket.io&#x27;</span>)(server);<br><br><span class="hljs-comment">// 监听连接</span><br>io.on(<span class="hljs-string">&#x27;connection&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">socket</span>) </span>&#123;<br><br>    <span class="hljs-comment">// 发送消息</span><br>    <span class="hljs-comment">// 第一个参数是：信号</span><br>    <span class="hljs-comment">// 第二个参数: 内容</span><br>    socket.emit(<span class="hljs-string">&#x27;szc&#x27;</span>, <span class="hljs-string">&#x27;您好&#x27;</span>);<br><br>    socket.on(<span class="hljs-string">&#x27;jjj&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(msg);<br>    &#125;);<br><br><br>    socket.on(<span class="hljs-string">&#x27;all&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> &#123;<br>        socket.broadcast.emit(<span class="hljs-string">&#x27;allperson&#x27;</span>, obj);<br>    &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Mr.Zhang</li>
+  <li><strong>本文链接：</strong><a href="http://example.com/2020/11/18/socket/index.html">http://example.com/2020/11/18/socket/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+<nav class="nav">
+  
+    <a href="/2020/11/18/hello-world/"><i class="iconfont iconleft"></i>Hello World</a>
+  
+  
+    <a href="/2018/11/18/touch/">touch<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          <aside class="toc-wrap">
+  <h3 class="toc-title">文章目录：</h3>
+  
+</aside>
+        
+      </div>
+    </div>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=894519210 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/izhaoo " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="mailto:izhaoo@163.com " target="_blank" onMouseOver="this.style.color='#FF3B00'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>

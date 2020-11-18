@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>touch - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="touch事件：    1. touchstart  ..."> 
+  
+  <meta name="author" content="Mr.Zhang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+  
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v1.hitokoto.cn/?encode=text&c=d'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left">
+    
+      <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+    
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+  </div>
+  <div class="center">touch</div>
+  <div class="right">
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+  
+    <div id="qrcode-navbar"></div>
+  
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 关于</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">touch</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 18, 2018</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3610</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>touch事件：<br>    1. touchstart<br>    手指触摸到屏幕会触发<br>    2. touchmove<br>    当手指在屏幕上移动时触发<br>    3. touchend<br>    当手指离开屏幕时会触发<br>    4. touchcancel<br>    当系统停止跟踪触摸时触发<br>    当触控点被特定的实现方式打乱时触发</p>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><pre><code>target ：触摸的 DOM 节点目标
+clientX ：触摸目标在视口中的 x 坐标
+clientY ：触摸目标在视口中的 y 坐标
+pageX ：触摸目标在页面中的 x 坐标
+pageY ：触摸目标在页面中的 y 坐标
+screenX ：触摸目标在屏幕中的 x 坐标
+screenY ：触摸目标在屏幕中的 y 坐标
+touches ：表示当前跟踪的触摸操作的 Touch 对象的数组
+targetTouchs ：特定于事件目标的 Touch 对象的数组
+changeTouches ：表示自上次触摸以来发生了什么改变的 Touch 对象的数组</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 帮元素传到某个函数里面去绑定事件，然后传进去的回调函数作为事件处理程序</span><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swipeLeft</span>(<span class="hljs-params">ele, fn</span>) </span>&#123;<br>        ele.flag = <span class="hljs-literal">false</span>;<br>        ele.startX = <span class="hljs-literal">undefined</span>;<br>        ele.startY = <span class="hljs-literal">undefined</span>;<br>        ele.endX = <span class="hljs-literal">undefined</span>;<br>        ele.endY = <span class="hljs-literal">undefined</span>;<br>        ele.addEventListener(<span class="hljs-string">&#x27;touchstart&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>            <span class="hljs-comment">// 触摸开始</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;touchstart&#x27;</span>);<br>            <span class="hljs-built_in">this</span>.flag = <span class="hljs-literal">true</span>;<br><br>            <span class="hljs-comment">// 记录 手指第一次触摸的坐标</span><br>            <span class="hljs-built_in">this</span>.startX = event.touches[<span class="hljs-number">0</span>].clientX;<br>            <span class="hljs-built_in">this</span>.startY = event.touches[<span class="hljs-number">0</span>].clientY;<br><br>        &#125;);<br><br>        ele.addEventListener(<span class="hljs-string">&#x27;touchmove&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>            <span class="hljs-comment">// console.log(event.touches[0]);</span><br>            <span class="hljs-comment">// clientX: 80: 手指触摸点： 相对于可视区域下的坐标x</span><br>            <span class="hljs-comment">// clientY: 46：手指触摸点： 相对于可视区域下的坐标</span><br>            <span class="hljs-comment">// pageX: 80： 相对于页面的坐标X</span><br>            <span class="hljs-comment">// pageY: 46  相对于页面的坐标Y</span><br>            <span class="hljs-comment">// 触摸开始</span><br>            <span class="hljs-comment">// console.log(&#x27;touchmove&#x27;);</span><br>            <span class="hljs-built_in">this</span>.endX = event.touches[<span class="hljs-number">0</span>].clientX;<br>            <span class="hljs-built_in">this</span>.endY = event.touches[<span class="hljs-number">0</span>].clientY;<br><br>        &#125;);<br><br>        ele.addEventListener(<span class="hljs-string">&#x27;touchend&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>            <span class="hljs-comment">// 触摸结束</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;touchend&#x27;</span>);<br><br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.flag) &#123;<br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.endX - <span class="hljs-built_in">this</span>.startX &gt; <span class="hljs-number">30</span>) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;向右&#x27;</span>);<br>                &#125;<br><br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.endX - <span class="hljs-built_in">this</span>.startX &lt; -<span class="hljs-number">30</span>) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;向左&#x27;</span>);<br>                    fn &amp;&amp; fn();<br>                &#125;<br><br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.endY - <span class="hljs-built_in">this</span>.startY &gt; <span class="hljs-number">30</span>) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;向下&#x27;</span>);<br>                &#125;<br><br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.endY - <span class="hljs-built_in">this</span>.startY &lt; -<span class="hljs-number">30</span>) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;向上&#x27;</span>);<br>                &#125;<br><br>                <span class="hljs-built_in">this</span>.flag = <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    swipeLeft(<span class="hljs-built_in">window</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;123&#x27;</span>);<br>    &#125;);<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="zepto中的封装事件"><a href="#zepto中的封装事件" class="headerlink" title="zepto中的封装事件"></a>zepto中的封装事件</h4><pre><code>tap： 模拟点击事件
+singleTap： 单击事件
+longTap： 长按事件
+swipeUp： 向上滑事件
+swipeDown： 向下滑事件
+swipeLeft： 向左滑事件
+swiperRight: 向右滑事件</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 首先引入zepto --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./js/zepto.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 引入touch模块 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./js/touch.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><br><span class="javascript"><span class="hljs-comment">// 触摸点击</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;tap&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;tap&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 单击事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;singleTap&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;singletap&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 双击事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;doubleTap&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;doubleTap&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 长按事件， 超过750ms</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;longTap&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;longTap&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 滑动事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;swipe&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;swipe&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 上滑事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;swipeUp&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;swipeUp&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 下滑事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;swipeDown&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;swipeDown&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 左滑事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;swipeLeft&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;swipeLeft&#x27;</span>);</span><br>&#125;);<br><br><span class="javascript"><span class="hljs-comment">// 右滑事件</span></span><br><span class="javascript">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">&#x27;swipeRight&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;swipeRight&#x27;</span>);</span><br>&#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Mr.Zhang</li>
+  <li><strong>本文链接：</strong><a href="http://example.com/2018/11/18/touch/index.html">http://example.com/2018/11/18/touch/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+<nav class="nav">
+  
+    <a href="/2020/11/18/socket/"><i class="iconfont iconleft"></i>socket</a>
+  
+  
+</nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          <aside class="toc-wrap">
+  <h3 class="toc-title">文章目录：</h3>
+  
+</aside>
+        
+      </div>
+    </div>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=894519210 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/izhaoo " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="mailto:izhaoo@163.com " target="_blank" onMouseOver="this.style.color='#FF3B00'"
+      onMouseOut="this.style.color=''">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>
